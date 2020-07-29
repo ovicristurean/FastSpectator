@@ -1,5 +1,7 @@
-import 'file:///C:/Users/ocristurean/AndroidStudioProjects/fast_spectator/FastSpectator/fast_spectator/lib/ui/screens/recent_matches_screen.dart';
+import 'package:fast_spectator/util/constants.dart';
 import 'package:flutter/material.dart';
+
+import 'file:///C:/Users/ocristurean/AndroidStudioProjects/fast_spectator/FastSpectator/fast_spectator/lib/ui/screens/recent_matches_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Most recent matches'),
+      home: MyHomePage(title: Constants.APP_BAR_TITLE),
     );
   }
 }

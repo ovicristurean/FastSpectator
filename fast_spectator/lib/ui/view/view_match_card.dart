@@ -1,4 +1,6 @@
 import 'package:fast_spectator/model/match_info.dart';
+import 'package:fast_spectator/ui/screens/match_details_screen.dart';
+import 'package:fast_spectator/ui/screens/match_videos_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -75,33 +77,47 @@ class MatchCardState extends State<MatchCardView> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(left:8),
+              padding: EdgeInsets.only(left: 8),
             ),
             Expanded(
               child: RaisedButton(
                 color: Colors.grey,
-                onPressed: () {},
+                onPressed: () {
+                  navigateToDetail(_matchInfo.url);
+                },
                 elevation: 5.0,
                 child: Text("Match details"),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left:8),
+              padding: EdgeInsets.only(left: 8),
             ),
             Expanded(
               child: RaisedButton(
                 color: Colors.grey,
-                onPressed: () {},
+                onPressed: () {
+                  navigateToHighlights(_matchInfo.videos[0].embed);
+                },
                 elevation: 5.0,
                 child: Text("Check highlights"),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left:8),
+              padding: EdgeInsets.only(left: 8),
             ),
           ],
         )
       ],
     ));
+  }
+
+  void navigateToDetail(String url) async {
+    bool result = await Navigator.push(context,
+        MaterialPageRoute(builder: (context) => MatchDetailsScreen(url)));
+  }
+
+  void navigateToHighlights(String url) async {
+    bool result = await Navigator.push(context,
+        MaterialPageRoute(builder: (context) => MatchVideoScreen(url)));
   }
 }

@@ -36,9 +36,8 @@ class RecentMatchesState extends State<RecentMatchesScreen> {
                 itemBuilder: (context, index) {
                   return MatchCardView(snapshot.data[index]);
                 },
-                separatorBuilder: (BuildContext context, int index) =>
-                    Divider(),
-                itemCount: 55);
+                separatorBuilder: (BuildContext context, int index) => Divider(),
+                itemCount: snapshot.data.length);
           } else {
             return Center(
               child: Text("No matches found"),
