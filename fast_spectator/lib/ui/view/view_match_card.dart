@@ -71,14 +71,35 @@ class MatchCardState extends State<MatchCardView> {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: RaisedButton(
-            color: Colors.grey,
-            onPressed: () {},
-            elevation: 5.0,
-            child: Text("Check highlights"),
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left:8),
+            ),
+            Expanded(
+              child: RaisedButton(
+                color: Colors.grey,
+                onPressed: () {},
+                elevation: 5.0,
+                child: Text("Match details"),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left:8),
+            ),
+            Expanded(
+              child: RaisedButton(
+                color: Colors.grey,
+                onPressed: () {},
+                elevation: 5.0,
+                child: Text("Check highlights"),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left:8),
+            ),
+          ],
         )
       ],
     ));

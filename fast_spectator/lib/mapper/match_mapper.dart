@@ -20,6 +20,9 @@ class MatchMapper extends Mapper<MatchInfo> {
     List<dynamic> videosJson = parsedJson["videos"];
     result.videos = getVideos(videosJson);
 
+    Map<String, dynamic> competitionJson = parsedJson["competition"];
+    result.competition = getCompetitionFromJson(competitionJson);
+
     return result;
   }
 
@@ -45,5 +48,14 @@ class MatchMapper extends Mapper<MatchInfo> {
     video.embed = videoJson["embed"];
 
     return video;
+  }
+
+  Competition getCompetitionFromJson(Map<String, dynamic> competitionJson) {
+    Competition result = Competition();
+    result.name = competitionJson["name"];
+    result.id = competitionJson["id"];
+    result.url = competitionJson["url"];
+
+    return result;
   }
 }
