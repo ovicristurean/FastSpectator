@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:lottie/lottie.dart';
 
 class MatchVideoScreen extends StatelessWidget {
   String _div;
@@ -10,12 +10,16 @@ class MatchVideoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    /*return Container(
         child: WebView(
       initialUrl: Uri.dataFromString(extractIframe(_div), mimeType: 'text/html')
           .toString(),
-      javascriptMode: JavascriptMode.unrestricted,
-    ));
+      javascriptMode: JavascriptMode.unrestricted,`
+    ));*/
+    return Center(
+      child: Lottie.network(
+          "https://assets10.lottiefiles.com/private_files/lf30_l8c8UB.json"),
+    );
   }
 
   String extractIframe(String div) {
