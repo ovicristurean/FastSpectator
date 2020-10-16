@@ -3,6 +3,7 @@ import 'package:fast_spectator/di/provider_module.dart';
 import 'package:fast_spectator/model/match_info.dart';
 import 'package:fast_spectator/repository/match_info_data_source.dart';
 import 'package:fast_spectator/ui/view/view_match_card.dart';
+import 'package:fast_spectator/ui/view/view_matches_placeholder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -36,11 +37,15 @@ class RecentMatchesState extends State<RecentMatchesScreen> {
                 itemBuilder: (context, index) {
                   return MatchCardView(snapshot.data[index]);
                 },
-                separatorBuilder: (BuildContext context, int index) => Divider(),
+                separatorBuilder: (BuildContext context, int index) =>
+                    Divider(),
                 itemCount: snapshot.data.length);
           } else {
-            return Center(
-              child: Text("No matches found"),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                MatchesPlaceholderView(),
+              ],
             );
           }
         });
